@@ -6,10 +6,13 @@ packages:
 catalogMode: prefer
 
 catalog:
+  "@histoire/plugin-vue": 1.0.0-beta.1
   "@types/node": ^24
+  histoire: 1.0.0-beta.1
   typescript: ^7.0.2
   vite: npm:@voidzero-dev/vite-plus-core@0.2.6
   vite-plus: 0.2.6
+  vue: ^3.5.42
 overrides:
   vite: "catalog:"
 peerDependencyRules:
