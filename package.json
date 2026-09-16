@@ -6,9 +6,17 @@
   "scripts": {
     "ready": "vp check && vp run -r test && vp run -r build",
     "dev": "vp run website#dev",
-    "prepare": "vp config"
+    "prepare": "vp config",
+    "story:dev": "histoire dev",
+    "story:build": "histoire build",
+    "story:preview": "histoire preview"
+  },
+  "dependencies": {
+    "vue": "catalog:"
   },
   "devDependencies": {
+    "@histoire/plugin-vue": "catalog:",
+    "histoire": "catalog:",
     "vite": "catalog:",
     "vite-plus": "catalog:"
   },
