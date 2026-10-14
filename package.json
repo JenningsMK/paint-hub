@@ -6,7 +6,7 @@
   "scripts": {
     "ready": "vp check && vp run -r test && vp run -r build",
     "dev": "vp run website#dev",
-    "prepare": "vp config",
+    "prepare": "vp config && skills-npm",
     "story:dev": "histoire dev",
     "story:build": "histoire build",
     "story:preview": "histoire preview"
@@ -15,15 +15,17 @@
     "vue": "catalog:"
   },
   "devDependencies": {
+    "@antfu/skills": "catalog:",
     "@histoire/plugin-vue": "catalog:",
     "histoire": "catalog:",
+    "skills-npm": "catalog:",
     "vite": "catalog:",
     "vite-plus": "catalog:"
   },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "11.20.0",
+      "version": "12.11.2",
       "onFail": "download"
     }
   },
