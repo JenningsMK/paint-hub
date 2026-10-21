@@ -1,0 +1,34 @@
+:root {
+  color-scheme: light dark;
+
+  /* ColoUrs */
+  --colour-backgound: light-dark(#f5efe6, #252a18);
+  --colour-card: light-dark(#fdfaf6, #343d22);
+  --colour-border: light-dark(#e2d5c3, #485530);
+  --colour-text-primary: light-dark(#2c1f0e, #f5ebe0);
+  --colour-text-secondary: light-dark(#8d6f4e, #a08c72);
+  --colour-accent: light-dark(#33563c, #6baf82);
+  --colour-button-text: light-dark(#f5efe6, #031102);
+}
+
+body {
+  color: var(--colour-text-primary);
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
