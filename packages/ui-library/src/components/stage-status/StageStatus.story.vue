@@ -8,5 +8,8 @@ import { listOfStatues } from "./constants.ts";
     <Variant v-for="status in listOfStatues" :key="status" :title="status">
       <StageStatus :status="status" />
     </Variant>
+    <Variant title="Unknown status">
+      <StageStatus status="unknown" />
+    </Variant>
   </Story>
 </template>

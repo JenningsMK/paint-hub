@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import { describe, expect, test } from "vite-plus/test";
+import { afterEach, describe, expect, test, vi } from "vite-plus/test";
 import StageStatus from "./StageStatus.vue";
 import { listOfStatues } from "./constants.ts";
 
@@ -11,6 +11,10 @@ const expected = {
 } as const;
 
 describe("StageStatus", () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   test.each(listOfStatues)("renders the %s status", (status) => {
     const wrapper = mount(StageStatus, { props: { status } });
 
@@ -30,7 +34,21 @@ describe("StageStatus", () => {
     );
   });
 
-  test("does not crash on an unknown status", () => {
-    expect(() => mount(StageStatus, { props: { status: "unknown" as never } })).not.toThrow();
+  test("shows an unknown status as text with the base styles but no background", () => {
+    const wrapper = mount(StageStatus, { props: { status: "unknown" as never } });
+
+    expect(wrapper.text()).toBe("unknown");
+    const known = mount(StageStatus, { props: { status: "done" } });
+
+    expect(wrapper.classes()).toEqual(known.classes());
+    expect(wrapper.attributes("style")).toBeUndefined();
+  });
+
+  test("warns in development when given an unknown status", () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+
+    mount(StageStatus, { props: { status: "unknown" as never } });
+
+    expect(warn.mock.calls.flat().join(" ")).toContain("Invalid prop");
   });
 });

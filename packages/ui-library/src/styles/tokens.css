@@ -1,7 +1,7 @@
 :root {
   color-scheme: light dark;
 
-  /* ColoUrs */
+  /* Colours */
   --colour-backgound: light-dark(#f5efe6, #252a18);
   --colour-card: light-dark(#fdfaf6, #343d22);
   --colour-border: light-dark(#e2d5c3, #485530);

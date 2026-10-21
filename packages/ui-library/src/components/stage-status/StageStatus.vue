@@ -7,7 +7,11 @@ import { listOfStatues } from "./constants.ts";
 type Status = (typeof listOfStatues)[number];
 
 const props = defineProps({
-  status: { type: String as PropType<Status>, default: "on-sprue" },
+  status: {
+    type: String as PropType<Status>,
+    default: "on-sprue",
+    validator: (value: unknown) => listOfStatues.includes(value as Status),
+  },
 });
 
 const options = {
@@ -29,13 +33,18 @@ const options = {
   },
 } satisfies Record<Status, { colour: string; text: string }>;
 
-const statusDisplay = computed(() => options[props.status] ?? options["on-sprue"]);
+const statusDisplay = computed(() => options[props.status as Status]);
 </script>
 
 <template>
-  <span :class="$style['stage-status']" :style="{ background: statusDisplay.colour }">
+  <span
+    v-if="statusDisplay"
+    :class="$style['stage-status']"
+    :style="{ background: statusDisplay.colour }"
+  >
     {{ statusDisplay.text }}
   </span>
+  <span :class="$style['stage-status']" v-else>{{ status }}</span>
 </template>
 
 <style module>
