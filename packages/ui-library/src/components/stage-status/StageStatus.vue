@@ -37,18 +37,14 @@ const statusDisplay = computed(() => options[props.status as Status]);
 </script>
 
 <template>
-  <span
-    v-if="statusDisplay"
-    :class="$style['stage-status']"
-    :style="{ background: statusDisplay.colour }"
-  >
+  <span v-if="statusDisplay" class="ui-stage-status" :style="{ background: statusDisplay.colour }">
     {{ statusDisplay.text }}
   </span>
-  <span :class="$style['stage-status']" v-else>{{ status }}</span>
+  <span class="ui-stage-status" v-else>{{ status }}</span>
 </template>
 
-<style module>
-.stage-status {
+<style>
+.ui-stage-status {
   --on-sprue: #599fbf;
   --construction: #d4bc6c;
   --painting: #b36cd4;

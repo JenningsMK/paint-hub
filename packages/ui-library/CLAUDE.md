@@ -12,7 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **src/components/** — Vue components (`.vue` files) using `<script setup>` with TypeScript
   - Each component should have clear, documented props and emits
-  - Scoped styles are co-located in the `<style scoped>` block
+  - Styles are co-located in each component's plain `<style>` block (unscoped, class names prefixed with `ui-`). Component-local custom properties are fine when only that component uses them
   - No external CSS framework; styling uses CSS custom properties defined in `src/styles/tokens.css`
 
 - **src/styles/** — Global and utility styles
